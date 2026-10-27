@@ -32,8 +32,7 @@ __all__ = (
 class BGPPeerTemplateFilter(TenancyFilterMixin, PrimaryModelFilter):
     name: StrFilterLookup | None = strawberry_django.filter_field()
     remote_as: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
+        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     remote_as_id: ID | None = strawberry_django.filter_field()
     enabled: FilterLookup[bool] | None = strawberry_django.filter_field()
@@ -48,14 +47,12 @@ class BGPPolicyTemplateFilter(TenancyFilterMixin, PrimaryModelFilter):
 @strawberry_django.filter(models.BGPSessionTemplate, lookups=True)
 class BGPSessionTemplateFilter(TenancyFilterMixin, PrimaryModelFilter):
     name: StrFilterLookup | None = strawberry_django.filter_field()
-    local_as: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
-    ) = strawberry_django.filter_field()
+    local_as: Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None = (
+        strawberry_django.filter_field()
+    )
     local_as_id: ID | None = strawberry_django.filter_field()
     remote_as: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
+        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     remote_as_id: ID | None = strawberry_django.filter_field()
     enabled: FilterLookup[bool] | None = strawberry_django.filter_field()
@@ -65,14 +62,12 @@ class BGPSessionTemplateFilter(TenancyFilterMixin, PrimaryModelFilter):
 class BGPRouterFilter(TenancyFilterMixin, PrimaryModelFilter):
     name: StrFilterLookup | None = strawberry_django.filter_field()
     assigned_object_type: (
-        Annotated['ContentTypeFilter', strawberry.lazy('core.graphql.filters')]
-        | None
+        Annotated['ContentTypeFilter', strawberry.lazy('core.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     assigned_object_id: ID | None = strawberry_django.filter_field()
-    asn: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
-    ) = strawberry_django.filter_field()
+    asn: Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None = (
+        strawberry_django.filter_field()
+    )
     asn_id: ID | None = strawberry_django.filter_field()
 
 
@@ -104,29 +99,27 @@ class BGPPeerFilter(TenancyFilterMixin, PrimaryModelFilter):
     ) = strawberry_django.filter_field()
     scope_id: ID | None = strawberry_django.filter_field()
     peer: (
-        Annotated['IPAddressFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
+        Annotated['IPAddressFilter', strawberry.lazy('ipam.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     peer_id: ID | None = strawberry_django.filter_field()
     source: (
-        Annotated['IPAddressFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
+        Annotated['IPAddressFilter', strawberry.lazy('ipam.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     source_id: ID | None = strawberry_django.filter_field()
     peer_group: (
-        Annotated['BGPPeerTemplateFilter', strawberry.lazy('netbox_routing.graphql.filters')]
+        Annotated[
+            'BGPPeerTemplateFilter', strawberry.lazy('netbox_routing.graphql.filters')
+        ]
         | None
     ) = strawberry_django.filter_field()
     peer_group_id: ID | None = strawberry_django.filter_field()
     remote_as: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
+        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     remote_as_id: ID | None = strawberry_django.filter_field()
-    local_as: (
-        Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')]
-        | None
-    ) = strawberry_django.filter_field()
+    local_as: Annotated['ASNFilter', strawberry.lazy('ipam.graphql.filters')] | None = (
+        strawberry_django.filter_field()
+    )
     local_as_id: ID | None = strawberry_django.filter_field()
     enabled: FilterLookup[bool] | None = strawberry_django.filter_field()
     status: StrFilterLookup | None = strawberry_django.filter_field()
@@ -135,12 +128,13 @@ class BGPPeerFilter(TenancyFilterMixin, PrimaryModelFilter):
 @strawberry_django.filter(models.BGPPeerAddressFamily, lookups=True)
 class BGPPeerAddressFamilyFilter(TenancyFilterMixin, PrimaryModelFilter):
     assigned_object_type: (
-        Annotated['ContentTypeFilter', strawberry.lazy('core.graphql.filters')]
-        | None
+        Annotated['ContentTypeFilter', strawberry.lazy('core.graphql.filters')] | None
     ) = strawberry_django.filter_field()
     assigned_object_id: ID | None = strawberry_django.filter_field()
     address_family: (
-        Annotated['BGPAddressFamilyFilter', strawberry.lazy('netbox_routing.graphql.filters')]
+        Annotated[
+            'BGPAddressFamilyFilter', strawberry.lazy('netbox_routing.graphql.filters')
+        ]
         | None
     ) = strawberry_django.filter_field()
     address_family_id: ID | None = strawberry_django.filter_field()

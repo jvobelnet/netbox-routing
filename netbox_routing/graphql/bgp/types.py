@@ -72,7 +72,9 @@ class BGPSettingType(PrimaryObjectType):
 
 @strawberry_django.type(
     models.BGPPeerTemplate,
-    pagination=True, fields='__all__', filters=BGPPeerTemplateFilter
+    pagination=True,
+    fields='__all__',
+    filters=BGPPeerTemplateFilter,
 )
 class BGPPeerTemplateType(PrimaryObjectType):
     name: str
@@ -83,7 +85,9 @@ class BGPPeerTemplateType(PrimaryObjectType):
 
 @strawberry_django.type(
     models.BGPPolicyTemplate,
-    pagination=True, fields='__all__', filters=BGPPolicyTemplateFilter
+    pagination=True,
+    fields='__all__',
+    filters=BGPPolicyTemplateFilter,
 )
 class BGPPolicyTemplateType(PrimaryObjectType):
     name: str
@@ -117,7 +121,9 @@ class BGPPolicyTemplateType(PrimaryObjectType):
 
 @strawberry_django.type(
     models.BGPSessionTemplate,
-    pagination=True, fields='__all__', filters=BGPSessionTemplateFilter
+    pagination=True,
+    fields='__all__',
+    filters=BGPSessionTemplateFilter,
 )
 class BGPSessionTemplateType(BGPSettingsMixin, PrimaryObjectType):
     name: str

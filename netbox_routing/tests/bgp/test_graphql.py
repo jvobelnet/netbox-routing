@@ -106,7 +106,9 @@ class BGPGraphQLTestCase(APITestCase):
         )
         remote_as = ASN.objects.get(asn=64513).pk
         self.assertEqual(
-            self.ids(f'{{ bgp_peer_list(filters: {{remote_as_id: "{remote_as}"}}) {{ id }} }}'),
+            self.ids(
+                f'{{ bgp_peer_list(filters: {{remote_as_id: "{remote_as}"}}) {{ id }} }}'
+            ),
             self.pks(('router-a', 1), ('router-b', 1)),
         )
         self.assertEqual(
